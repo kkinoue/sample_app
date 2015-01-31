@@ -16,6 +16,7 @@ describe 'StaticPages' do
 
     it_should_behave_like "all static page"
     it { should_not have_title('| Home') }
+    it { should_not have_title('Ruby on Rails Tutorial Sample App | ') }
   end
 
   describe 'Help page' do
