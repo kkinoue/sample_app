@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :microposts, dependent: :destroy
+
   before_save { email.downcase! }
   before_create :create_remember_token
 
@@ -15,7 +17,7 @@ class User < ActiveRecord::Base
   # password_confirmation
   validates :password, length: { minimum: 6 }
 
-  # 平文のトークン
+  # 平文のトークンを生成
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end
