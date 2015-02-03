@@ -17,6 +17,10 @@ class User < ActiveRecord::Base
   # password_confirmation
   validates :password, length: { minimum: 6 }
 
+  def feed
+    Micropost.where('user_id = ?', id)
+  end
+
   # 平文のトークンを生成
   def User.new_remember_token
     SecureRandom.urlsafe_base64

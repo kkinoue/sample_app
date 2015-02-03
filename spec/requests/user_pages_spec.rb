@@ -175,8 +175,7 @@ describe "User Pages" do
         sign_in user
         visit signup_path
       end
-      it { should_not have_title('Sign up') }
-      it { should have_content('Sample App') }
+      it { should_not have_title('Sign in') }
     end
 
     describe "create user" do
